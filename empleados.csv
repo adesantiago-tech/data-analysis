@@ -1,0 +1,11 @@
+empleado,edad,departamento,salario,antiguedad,remoto,calificacion
+001,34,IT,2800,6,SI,8
+002,29,RRHH,2100,3,NO,7
+003,41,IT,3500,10,NO,9
+004,25,Marketing,1800,1,SI,6
+005,38,IT,3000,8,NO,7
+006,30,Marketing,1950,2,SI,8
+007,50,RRHH,2500,15,NO,6
+008,27,IT,2750,4,NO,8
+009,31,Marketing,1850,3,SI,7
+010,36,IT,3200,7,SI,9
