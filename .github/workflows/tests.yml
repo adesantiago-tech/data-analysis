@@ -2,14 +2,14 @@ name: Tests
 
 on:
   push:
-    branches: [ main, develop ]
+    branches: [ main, master ]  # Agregué master aquí
   pull_request:
-    branches: [ main ]
+    branches: [ main, master ]  # Y aquí también
 
 jobs:
   test:
     runs-on: ubuntu-latest
-
+    
     strategy:
       matrix:
         python-version: [3.9, 3.10, 3.11]
@@ -24,7 +24,7 @@ jobs:
           --health-retries 5
         ports:
           - 6379:6379
-
+      
       minio:
         image: minio/minio:latest
         env:
@@ -80,9 +80,9 @@ jobs:
         run: |
           pytest tests/e2e/ -v -m e2e
 
-      - name: Run all tests with coverage
+      - name: Run all tests with coverage requirement
         run: |
-          pytest --cov=app --cov-report=xml --cov-report=html
+          pytest --cov=app --cov-report=xml --cov-report=html --cov-fail-under=80
 
       - name: Upload coverage to Codecov
         uses: codecov/codecov-action@v3
